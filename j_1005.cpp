@@ -1,29 +1,48 @@
-#include <iostream>
+#include<iostream>
+#include<stdio.h>
+#include<vector>
+#include<map>
+#include<set>
+#include<algorithm>
 
 using namespace std;
 
-int main() {
-    char n[101];
-    string num[10] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-    string ans[3] = {"none"};
-    int sum = 0, r = 0, i = 0;
-    cin >> n;
-    for(i = 0; n[i]!='\0'; i++) {
-        sum += (n[i]-48);
+int main(){
+	string a;
+	cin>>a;
+	int sum=0;
+	int i=0;
+	while(a[i]!='\0')
+	{
+        sum+=a[i]-'0';
+        i++;
     }
-    i = 2;
-    while(sum>0) {
-        r = sum % 10;
-        ans[i] = num[r];
-        sum /= 10;
-        i--;
-    }
-    for (i=0; i<3; i++) {
-        if(ans[i]!="none") {
-            cout << ans[i];
-            if(i!=2) cout << " ";
-        }
-    }
-    cout << endl;
-    return 0;
+	int temp;
+	vector <int> v;
+	do
+	{
+		temp = sum % 10;
+		sum = sum/10;
+		v.push_back(temp);
+	}while(sum);//避免0的问题 
+	for(int i=0;i<v.size();i++){
+		switch(v[v.size()-i-1]){
+			case 0:cout << "zero"; break;
+            case 1:cout << "one"; break;
+            case 2:cout << "two"; break;
+            case 3:cout << "three"; break;
+            case 4:cout << "four"; break;
+            case 5:cout << "five"; break;
+            case 6:cout << "six"; break;
+            case 7:cout << "seven"; break;
+            case 8:cout << "eight"; break;
+            case 9:cout << "nine"; break;
+            default:
+                break;
+		}
+		if(i!=v.size()-1){
+			cout<<" ";
+			//if i=v.size()-1  那么就说明所有数字已经录入完毕 
+		}		 
+	}
 }
