@@ -9,36 +9,31 @@ int main() {
     
     int *arr;
     int *tmp;
-    int *origin;
     arr = (int*)malloc(sizeof(int) * N);
-    origin = (int*)malloc(sizeof(int) * N);
-    tmp = (int*)malloc(sizeof(int) * 10 * 10 * 10 * 10);
+    tmp = (int*)malloc(sizeof(int) * 10 * 10 * 10 * 10 * 2);
     
     int i = 0;
-    while (i < N) {
-        cin >> arr[i];
-        origin[i] = arr[i];
-        tmp[arr[i]] = i;
+    while (i < 20000) {
+        tmp[i] = 0;
         i++;
     }
-    
-    sort(arr,arr+N);
     
     i = 0;
-    int j = 0;
-    int unique = 200000;
-    
     while (i < N) {
+        cin >> arr[i];
+        tmp[arr[i]]++;
         i++;
-        while (arr[j] == arr[i]) {
-            i++;
-        }
-        j = i;
-        if (arr[j] == arr[i+1]) continue;
-        if (unique > tmp[arr[i]]) unique = tmp[arr[i]];
     }
     
-    cout << origin[unique] << endl;
+    i = 0;
+    
+    while (i < N) {
+        if (tmp[arr[i]] == 1) break;
+        i++;
+    }
+    
+    if (i < N) cout << arr[i] << endl;
+    else cout << "None" << endl;
         
     return 0;
 }
