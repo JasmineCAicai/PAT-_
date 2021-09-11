@@ -26,7 +26,7 @@ int main() {
     
 	cin >> n >> k; //人数及课程数
     
-    //对每门课程
+	//对每门课程
 	for (int i = 0; i < k; i++) {
 		int course, x;
 		cin >> course >> x; //输入课程编号与选课人数
@@ -38,7 +38,7 @@ int main() {
 		}
 	}
     
-    //n个查询
+	//n个查询
 	for (int i = 0; i < n; i++) {
 		cin >> name;
 		int id = getID(name); //获得学生编号
