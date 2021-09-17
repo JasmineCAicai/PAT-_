@@ -6,7 +6,7 @@
 using namespace std;
 
 struct Mooncake {
-    int d;
+    double d;
     double p;
     double k;
 };
@@ -40,9 +40,11 @@ int main() {
         }
         else {
             total += (mooncakes[i].k * max_demand);
-            max_demand -= (((mooncakes[i].k * max_demand) / mooncakes[i].p) * mooncakes[i].d);
+            break;
+            //max_demand -= (((mooncakes[i].k * max_demand) / mooncakes[i].p) * mooncakes[i].d);
         }
         i++;
+        if (i == n) break;
     }
     
     cout << fixed << setprecision(2) << total << endl;
