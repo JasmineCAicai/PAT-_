@@ -26,77 +26,63 @@ int main() {
         i++;
     }
     
-    int r;
-    
     sort(students.begin(), students.end(), [](const Student& s1, const Student& s2){ return s1.a > s2.a; });
     vector<vector<int>> a_ranking(n, vector<int>(2));
     i = 0;
-    r = 1;
     while (i < n) {
         int tmp = i + 1, next = 1;
         a_ranking[i][0] = students[i].id;
-        a_ranking[i][1] = r;
+        a_ranking[i][1] = i + 1;
         while (tmp < n && students[i].a == students[tmp].a) {
             a_ranking[tmp][0] = students[tmp].id;
-            a_ranking[tmp][1] = r;
+            a_ranking[tmp][1] = i + 1;
             tmp++;
-            next++;
         }
-        r += next;
         i = tmp;
     }
     
     sort(students.begin(), students.end(), [](const Student& s1, const Student& s2){ return s1.c > s2.c; });
     vector<vector<int>> c_ranking(n, vector<int>(2));
     i = 0;
-    r = 1;
     while (i < n) {
-        int tmp = i + 1, next = 1;
+        int tmp = i + 1;
         c_ranking[i][0] = students[i].id;
-        c_ranking[i][1] = r;
+        c_ranking[i][1] = i + 1;
         while (tmp < n && students[i].c == students[tmp].c) {
             c_ranking[tmp][0] = students[tmp].id;
-            c_ranking[tmp][1] = r;
+            c_ranking[tmp][1] = i + 1;
             tmp++;
-            next++;
         }
-        r += next;
         i = tmp;
     }
     
     sort(students.begin(), students.end(), [](const Student& s1, const Student& s2){ return s1.m > s2.m; });
     vector<vector<int>> m_ranking(n, vector<int>(2));
     i = 0;
-    r = 1;
     while (i < n) {
-        int tmp = i + 1, next = 1;
+        int tmp = i + 1;
         m_ranking[i][0] = students[i].id;
-        m_ranking[i][1] = r;
+        m_ranking[i][1] = i + 1;
         while (tmp < n && students[i].m == students[tmp].m) {
             m_ranking[tmp][0] = students[tmp].id;
-            m_ranking[tmp][1] = r;
+            m_ranking[tmp][1] = i + 1;
             tmp++;
-            next++;
         }
-        r += next;
         i = tmp;
     }
     
     sort(students.begin(), students.end(), [](const Student& s1, const Student& s2){ return s1.e > s2.e; });
     vector<vector<int>> e_ranking(n, vector<int>(2));
     i = 0;
-    r = 1;
     while (i < n) {
-        int tmp = i + 1, next = 1;
+        int tmp = i + 1;
         e_ranking[i][0] = students[i].id;
-        e_ranking[i][1] = r;
+        e_ranking[i][1] = i + 1;
         while (tmp < n && students[i].e == students[tmp].e) {
             e_ranking[tmp][0] = students[tmp].id;
-            e_ranking[tmp][1] = r;
+            e_ranking[tmp][1] = i + 1;
             tmp++;
-            next++;
         }
-        r += next;
         i = tmp;
     }
     
